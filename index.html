@@ -1,0 +1,87 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>Calculator</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="body">
+	
+		
+	<h2><center><b>Calculator</b></center></h2>
+		<div class="main">
+
+		<form name="myform">
+			<input type="text" id="textview" >
+		</form>
+		<table>
+			<tr>
+				<td><input type="button" class="button symbol" onclick="getInput('C')" value="C" ></td>
+				<!-- <td><input type="button" class="button symbol"  onclick="getInput('CE')"value="CE" ></td> -->
+				
+				<td><input type="button" class="button symbol" onclick="back()" value="CE"></td>
+				<td><input type="button" class="button symbol" onclick="getInput('%')"value="%"></td>
+				<td><input type="button" class="button symbol" onclick="getInput('+')" value="+"></td>
+			</tr>
+			<tr>
+				<td><input type="button" class="button number" onclick="getInput(7)" value="7"></td>
+				<td><input type="button" class="button number" onclick="getInput(8)" value="8"></td>
+				<td><input type="button" class="button number" onclick="getInput(9)" value="9"></td>
+				<td><input type="button" class="button symbol" onclick="getInput('*')" value="*"></td>
+			</tr>
+			<tr>
+				<td><input type="button" class="button number" onclick="getInput(4)" value="4"></td>
+				<td><input type="button" class="button number" onclick="getInput(5)" value="5"></td>
+				<td><input type="button" class="button number" onclick="getInput(6)" value="6"></td>
+				<td><input type="button" class="button symbol" onclick="getInput('-')" value="-"></td>
+			</tr>
+			<tr>
+				<td><input type="button" class="button number"  onclick="getInput(1)"value="1"></td>
+				<td><input type="button" class="button number" onclick="getInput(2)" value="2"></td>
+				<td><input type="button" class="button number" onclick="getInput(3)" value="3"></td>
+				<td><input type="button" class="button symbol"  onclick="getInput('/')"value="/"></td>
+			</tr>
+			<tr>
+				<td><input type="button" class="button number " onclick="getInput(0)" value="0"></td>
+				<td><input type="button" class="button number" onclick="getInput('0'+'0')" value="00"></td>
+					<td><input type="button" class="button symbol" onclick="getInput('.')" value="."></td>
+				<td><input type="button" class="button symbol" onclick="getInput('=')" value="="></td>
+
+			</tr>
+		</table>
+	</div>
+
+
+         
+
+	<script type="text/javascript">
+		  var ok=0;
+		  function getInput(i){
+                   var x=i;
+                
+                if(x==='='){
+                	document.getElementById('textview').value=eval(document.getElementById('textview').value)
+                }
+                else if (x==='C') {
+                	document.getElementById('textview').value='';
+                }
+                else if (x==='+'||x==='-'||x==='*'||x==='/'||x==='%') {
+                       if (ok===0) {
+                         document.getElementById('textview').value+=i;
+                         ok=1;
+                       }
+               }
+               
+                else{
+                	document.getElementById('textview').value+=i;
+                	ok=0;
+                }
+
+		  }
+		  function back(){
+		  	x=textview.value;
+		  	x=x.substring(0,x.length - 1);
+		  	textview.value=x;
+		  }
+	</script>
+</body>
+</html>
